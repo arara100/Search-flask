@@ -1,0 +1,93 @@
+/* Загальні стилі для фільтрів */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Поля фільтрів */
+.filter {
+    position: relative;
+    flex: 1 1 180px;
+}
+
+/* Стиль кнопок для фільтрів */
+.dropdown-btn {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 50%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Додаємо тінь при наведенні */
+.dropdown-btn:hover {
+    border-color: #bbb;
+}
+
+/* Стиль випадаючого меню */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    min-width: 100%;
+    z-index: 10;
+}
+
+/* Активне меню */
+.show {
+    display: block;
+}
+
+/* Випадаючий список жанрів та форматів */
+.dropdown-content label {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.dropdown-content label:hover {
+    background: #f1f1f1;
+}
+
+/* Стиль чекбоксів і радіокнопок */
+.dropdown-content input {
+    margin-right: 8px;
+}
+
+/* Додатковий стиль для активного стану кнопки */
+.dropdown-btn.active {
+    background-color: #e3f2fd;
+    border-color: #64b5f6;
+}
+
+#genreMenu, #tagMenu {
+    max-height: 300px; /* Висота контейнера, яку можна налаштувати за потреби */
+    overflow-y: auto;  /* Додає вертикальну прокрутку */
+    padding-right: 10px; /* Додає відступ з правого боку для прокрутки */
+}
+
+
+/* Зміна кольору тексту жанрів */
+#genreMenu, #tagMenu, #formatMenu label {
+    color: #000000; /* Виберіть потрібний колір */
+}
+
+/* Зміна кольору при наведенні */
+#genreMenu label:hover {
+    color: #ff3300;
+    cursor: pointer;
+}

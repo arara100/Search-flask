@@ -1,20 +1,68 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block title %}Каталог Аніме{% endblock %}
 
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/catalog.css') }}">
+{% endblock %}
+
 {% block content %}
-    <div class="content">
-        <div>
-            <h2 class="section-title">Аніме</h2>
-            <div class="card-container">
-                <div class="card">
-                    <img src="{{ anime_image_url }}" alt="Аніме">
-                    <div class="card-content">
-                        <h3>{{ anime_title }}</h3>
-                        <p>Студія: {{ studio_name }}</p>
-                    </div>
-                </div>
+<section class="catalog">
+    <h2>Каталог Аніме</h2>
+
+    <div class="filters">
+        <!-- Рік: Повзунок -->
+        <div class="filter">
+            <label for="year">Рік</label>
+            <input type="range" id="year" name="year" min="1940" max="2025" value="2025" step="1"
+                   oninput="document.getElementById('yearValue').textContent = this.value">
+            <span id="yearValue">2025</span>
+        </div>
+
+        <!-- Жанри: Кнопка з випадаючим меню -->
+        <div class="filter">
+            <label for="genre">Жанр</label>
+            <button id="genreBtn" class="dropdown-btn">Виберіть жанр</button>
+            <div id="genreMenu" class="dropdown-content">
+            </div>
+        </div>
+
+        <div class="filter">
+            <label for=tag>Теги</label>
+            <button id="tagBtn" class="dropdown-btn">Виберіть теги</button>
+            <div id="tagMenu" class="dropdown-content">
+            </div>
+        </div>
+
+        <!-- Формат: Кнопка з випадаючим меню -->
+        <div class="filter">
+            <label for="format">Формат</label>
+            <button id="formatBtn" class="dropdown-btn">Виберіть формат</button>
+            <div id="formatMenu" class="dropdown-content">
+                <label><input type="radio" class="format" name="format" value="tv"> ТВ-серіал</label>
+                <label><input type="radio" class="format" name="format" value="movie"> Фільм</label>
+                <label><input type="radio" class="format" name="format" value="ova"> OVA</label>
+                <label><input type="radio" class="format" name="format" value="special"> Спеціальний</label>
+                <!-- Додайте інші формати за потреби -->
             </div>
         </div>
     </div>
+
+    <div class="anime-list">
+        <h3>Аніме</h3>
+        <ul>
+            <li><a href="#">Аніме 1</a></li>
+            <li><a href="#">Аніме 2</a></li>
+            <li><a href="#">Аніме 3</a></li>
+            <!-- Додайте аніме за потреби -->
+        </ul>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/catalog.js') }}"></script>
+<script src="{{ url_for('static', filename='js/genre.js') }}"></script>
+<script src="{{ url_for('static', filename='js/tags.js') }}"></script>
 {% endblock %}
