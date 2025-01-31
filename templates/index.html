@@ -28,12 +28,11 @@
                         <span class="tag">{{ trending.genres[0] }}</span>
                         <span class="tag">{{ trending.genres[1] }}</span>
                         {% if trending.genres[2] %}
-                            <span class="tag">{{ trending.genres[2] }}</span>
+                        <span class="tag">{{ trending.genres[2] }}</span>
                         {% endif %}
                     </div>
                 </div>
             </div>
-
             {% endfor %}
         </div>
     </div>
@@ -41,13 +40,28 @@
 
 <div class="main">
     <div class="content">
-        <a href="{{ url_for('popular') }}"><h3 class="section-title">Популярні Аніме</h3></a>
+        <a href="{{ url_for('popular') }}"><h3 class="section-title">Популярні Аніме Сезону</h3></a>
         <div class="anime-list">
             {% for popular in popular_list %}
-            <div class="card">
-                <img src="{{ popular.coverImage.large }}" alt="{{ popular.title.romaji }}">
-                <div class="card-content">
-                    <h3>{{ popular.title.romaji }}</h3>
+            <div class="card-wrapper">
+                <div class="card">
+                    <img src="{{ popular.coverImage.large }}" alt="{{ popular.title.romaji }}">
+                    <div class="card-content">
+                        <h3>{{ popular.title.romaji }}</h3>
+                    </div>
+                </div>
+                <div class="menu">
+                    <div class="info">
+                        <p>Episodes: {{ popular.episodes }}</p>
+                        <p>{{ popular.studio }}</p>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">{{ popular.genres[0] }}</span>
+                        <span class="tag">{{ popular.genres[1] }}</span>
+                        {% if popular.genres[2] %}
+                        <span class="tag">{{ popular.genres[2] }}</span>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             {% endfor %}
@@ -57,14 +71,28 @@
 
 <div class="main">
     <div class="content">
-        <a href="{{ url_for('score') }}"><h3 class="section-title">Найвище оцінені</h3></a>
+        <a href="{{ url_for('score') }}"><h3 class="section-title">Популярні Аніме Сезону</h3></a>
         <div class="anime-list">
             {% for score in top_list %}
-            <div class="card">
-                <img src="{{ score.coverImage.large }}" alt="{{ score.title.romaji }}">
-                <div class="card-content">
-                    <h3>{{ score.title.romaji }}</h3>
-                    <h4>{{ score.averageScore }}/100</h4>
+            <div class="card-wrapper">
+                <div class="card">
+                    <img src="{{ score.coverImage.large }}" alt="{{ score.title.romaji }}">
+                    <div class="card-content">
+                        <h3>{{ score.title.romaji }}</h3>
+                    </div>
+                </div>
+                <div class="menu">
+                    <div class="info">
+                        <p>Episodes: {{ score.episodes }}</p>
+                        <p>{{ score.studio }}</p>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">{{ score.genres[0] }}</span>
+                        <span class="tag">{{ score.genres[1] }}</span>
+                        {% if score.genres[2] %}
+                        <span class="tag">{{ score.genres[2] }}</span>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             {% endfor %}
@@ -72,4 +100,3 @@
     </div>
 </div>
 {% endblock %}
-

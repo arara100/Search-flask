@@ -15,6 +15,9 @@ def popular_top():
           coverImage {
             large
           }
+          averageScore
+          episodes
+          genres
         }
       }
     }
@@ -37,6 +40,9 @@ def popular_page():
           coverImage {
             large
           }
+          averageScore
+          episodes
+          genres
         }
       }
     }

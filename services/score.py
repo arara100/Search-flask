@@ -16,6 +16,8 @@ def score_top():
             large
           }
           averageScore
+          episodes
+          genres
         }
       }
     }
@@ -40,6 +42,8 @@ def score_page():
             large
           }
           averageScore
+          episodes
+          genres
         }
       }
     }
