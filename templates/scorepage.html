@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/top_pages.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/score_page.css') }}">
+{% endblock %}
+
+{% block title %}Популярні аніме{% endblock %}
+
+{% block content %}
+<div class="main">
+    <div class="content">
+        <h3 class="section-title">ТОП-50</h3>
+        <div class="anime-list">
+            {% for score in score_list %}
+            <div class="card">
+                <img src="{{ score.coverImage.large }}" alt="{{ score.title.romaji }}">
+                <div class="card-content">
+                    <h3>{{ score.title.romaji }}</h3>
+                    <h4>{{ score.averageScore }}/100</h4>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+tml>

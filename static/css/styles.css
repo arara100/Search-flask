@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #d4dfe3;
+    color: white;
+    overflow-x: hidden;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #1a1a40;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+header nav p {
+    text-decoration: none;
+    color: white;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+header nav a:nth-child(1) {
+    transition: color 0.5s ease; /* Затримка для посилання "Головна" */
+}
+.content {
+    padding: 20px;
+}
+.section-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+    background-color: #1a1a40;
+    color: white;
+    margin-top: 20px;
+}
+
+main {
+    min-height: 1000px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+/* Стилі для дропдаун-меню */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Відстань від батьківського елемента */
+    left: -70px;
+    background-color: #444;
+    padding: 10px 0;
+    min-width: 160px;
+    list-style: none;
+    margin: 0;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Щоб меню було поверх інших елементів */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Стилі для кожного елемента в підменю */
+.dropdown-menu li {
+    padding: 8px 16px;
+}
+
+.dropdown-menu li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+/* Ефект при наведенні на елементи підменю */
+.dropdown-menu li a:hover {
+    background-color: #555;
+}
+

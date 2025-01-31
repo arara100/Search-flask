@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    {% block link %}{% endblock %}
+    <title>{% block title %}Аніме Портал{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <a href="{{ url_for('index') }}"><h1>AniSearch</h1></a>
+        <nav>
+            <div class="dropdown">
+                <p>Меню</p>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ url_for('index') }}">Головна</a></li>
+                    <li><a href="{{ url_for('catalog') }}">Аніме</a></li>
+                    <li><a href="{{ url_for('forum') }}">Форум</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        &copy; 2025 Аніме Портал. Всі права захищено.
+    </footer>
+</body>
+
+</html>

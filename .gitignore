@@ -1,0 +1,41 @@
+# Ігноруємо кеш-файли Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ігноруємо середовище віртуального оточення
+venv/
+.env
+*.env
+
+# Ігноруємо файли налаштувань IDE (PyCharm, VS Code тощо)
+.idea/
+.vscode/
+*.code-workspace
+
+# Ігноруємо лог-файли та тимчасові файли
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# Ігноруємо файли залежностей (якщо використовуєш pipenv або poetry)
+Pipfile
+Pipfile.lock
+poetry.lock
+
+# Ігноруємо статичні збірки, якщо вони генеруються автоматично
+static/build/
+static/dist/
+
+# Ігноруємо базу даних SQLite (якщо використовуєш)
+*.sqlite3
+db.sqlite3
+instance/
+
+# Ігноруємо node_modules, якщо є фронтендова частина
+node_modules/
+npm-debug.log
+yarn-error.log

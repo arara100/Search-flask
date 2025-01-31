@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Каталог Аніме{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div>
+            <h2 class="section-title">Аніме</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="{{ anime_image_url }}" alt="Аніме">
+                    <div class="card-content">
+                        <h3>{{ anime_title }}</h3>
+                        <p>Студія: {{ studio_name }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
