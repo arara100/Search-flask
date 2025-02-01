@@ -1,6 +1,7 @@
-from flask import render_template
+from flask import render_template, request
 from app import app
 
+from services.catalog import anime_page
 from services.popular import *
 from services.score import *
 from services.trending import *
@@ -16,7 +17,8 @@ def index():
 
 @app.route('/catalog')
 def catalog():
-    return render_template('catalog.html')
+    anime_list = anime_page()
+    return render_template('catalog.html', anime_list=anime_list)
 
 
 @app.route('/forum')

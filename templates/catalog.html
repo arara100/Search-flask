@@ -4,14 +4,12 @@
 
 {% block link %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/catalog.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 {% endblock %}
 
 {% block content %}
 <section class="catalog">
-    <h2>Каталог Аніме</h2>
-
     <div class="filters">
-        <!-- Рік: Повзунок -->
         <div class="filter">
             <label for="year">Рік</label>
             <input type="range" id="year" name="year" min="1940" max="2025" value="2025" step="1"
@@ -19,7 +17,6 @@
             <span id="yearValue">2025</span>
         </div>
 
-        <!-- Жанри: Кнопка з випадаючим меню -->
         <div class="filter">
             <label for="genre">Жанр</label>
             <button id="genreBtn" class="dropdown-btn">Виберіть жанр</button>
@@ -34,7 +31,6 @@
             </div>
         </div>
 
-        <!-- Формат: Кнопка з випадаючим меню -->
         <div class="filter">
             <label for="format">Формат</label>
             <button id="formatBtn" class="dropdown-btn">Виберіть формат</button>
@@ -47,15 +43,30 @@
             </div>
         </div>
     </div>
-
     <div class="anime-list">
-        <h3>Аніме</h3>
-        <ul>
-            <li><a href="#">Аніме 1</a></li>
-            <li><a href="#">Аніме 2</a></li>
-            <li><a href="#">Аніме 3</a></li>
-            <!-- Додайте аніме за потреби -->
-        </ul>
+        {% for anime in anime_list %}
+        <div class="card-wrapper">
+            <div class="card">
+                <img src="{{ anime.coverImage.large }}" alt="{{ anime.title.romaji }}">
+                <div class="card-content">
+                    <h3>{{ anime.title.romaji }}</h3>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="info">
+                    <p>Episodes: {{ anime.episodes }}</p>
+                    <p>{{ anime.studio }}</p>
+                </div>
+                <div class="tags">
+                    <span class="tag">{{ anime.genres[0] }}</span>
+                    <span class="tag">{{ anime.genres[1] }}</span>
+                    {% if anime.genres[2] %}
+                    <span class="tag">{{ anime.genres[2] }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </section>
 

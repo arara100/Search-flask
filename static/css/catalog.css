@@ -1,9 +1,14 @@
+.catalog{
+    padding: 30px 60px;
+}
+
 /* Загальні стилі для фільтрів */
 .filters {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 /* Поля фільтрів */
