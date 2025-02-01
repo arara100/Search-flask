@@ -1,7 +1,7 @@
 from flask import render_template, request
 from app import app
 
-from services.catalog import anime_page
+from services.catalog import fetch_anime
 from services.popular import *
 from services.score import *
 from services.trending import *
@@ -15,10 +15,16 @@ def index():
     return render_template('index.html', popular_list=popular_list, top_list=top_list, trending_list=trending_list)
 
 
-@app.route('/catalog')
+@app.route('/catalog', methods=['GET', 'POST'])
 def catalog():
-    anime_list = anime_page()
-    return render_template('catalog.html', anime_list=anime_list)
+    sort_option = 'SCORE_DESC'
+    if request.method == 'POST':
+        sort_option = request.form.get('sort_option')
+
+    anime_data = fetch_anime(sort_option)
+    anime_list = anime_data['data']['Page']['media']
+
+    return render_template('catalog.html', anime_list=anime_list, sort_option=sort_option)
 
 
 @app.route('/forum')

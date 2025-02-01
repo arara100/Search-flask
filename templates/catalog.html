@@ -10,6 +10,15 @@
 {% block content %}
 <section class="catalog">
     <div class="filters">
+        <form method="POST" action="/catalog">
+            <select name="sort_option">
+                <option value="SCORE_DESC" {% if sort_option==
+                'SCORE_DESC' %}selected{% endif %}>По рейтингу</option>
+                <option value="POPULARITY_DESC" {% if sort_option==
+                'POPULARITY_DESC' %}selected{% endif %}>По популярності</option>
+            </select>
+            <button type="submit">Застосувати</button>
+        </form>
         <div class="filter">
             <label for="year">Рік</label>
             <input type="range" id="year" name="year" min="1940" max="2025" value="2025" step="1"
